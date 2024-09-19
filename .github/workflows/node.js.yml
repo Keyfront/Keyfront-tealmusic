@@ -19,6 +19,8 @@ jobs:
     - name: Use Node.js
       uses: actions/setup-node@v4
       with:
-        cache: 'npm'
-    - run: npm ci # Clean install of node modules from package-lock.json
+        node-version: '18.x' # Specify the Node.js version you want to use
+    - run: npm install # Install all dependencies from package.json
+      env:
+        NODE_ENV: production # Optional: Set NODE_ENV if needed
     - run: npm start # Run the start script
